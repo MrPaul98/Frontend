@@ -1,0 +1,98 @@
+<div class="container" style="margin-top: 5%;">
+    <form  class="bg-dark text-light p-5 mt-10" style="border-radius: 30px;" (ngSubmit)="submit()">
+        <div class="form-group row">
+            <label class="col-sm-3">Enter Email Id</label>
+            <input class="form-control col-sm-6" [(ngModel)]='user.emailId'
+             name="emailId" required #emailId='ngModel' placeholder="Enter EmailID" type="email">
+            <div *ngIf='emailId.touched && emailId.errors'  class="ml-4">
+                <div *ngIf='emailId.errors.required' style="color: red;">EmailId is Empty</div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-3">Enter Password</label>
+            <input class="form-control col-sm-6" [(ngModel)]='user.password'
+            name="password" required #password='ngModel' placeholder="Enter Password" type="password">
+            <div *ngIf='password.touched && password.errors' class="ml-4">
+                <div *ngIf='password.errors.required' style="color: red;">Password is Empty</div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-3">First Name</label>
+            <input class="form-control col-sm-6" [(ngModel)]='user.userdata.firstname'
+            name="firstname" required #firstname='ngModel' placeholder="Enter First Name" minlength="3">
+            <div *ngIf='firstname.touched && firstname.errors' class="ml-4">
+                <div *ngIf='firstname.errors.required' style="color: red;">FirstName is Empty</div>
+                <div *ngIf='firstname.errors.minlength'>FirstName must be of three digit</div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-3">Middle Name</label>
+            <input class="form-control col-sm-6" [(ngModel)]='user.userdata.middlename'
+            name="middlename" required #middlename='ngModel' placeholder="Enter Middle Name" minlength="3">
+            <div *ngIf='middlename.touched && middlename.errors' class="ml-4">
+                <div *ngIf='middlename.errors.required' style="color: red;">MiddleName is Empty</div>
+                <div *ngIf='middlename.errors.minlength'>Middlename must be of three digit</div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-3">Last Name</label>
+            <input class="form-control col-sm-6" [(ngModel)]='user.userdata.lastname'
+            name="lastname" required #lastname='ngModel' placeholder="Enter Last Name" minlength="3">
+            <div *ngIf='lastname.touched && lastname.errors' class="ml-4">
+                <div *ngIf='lastname.errors.required' style="color: red;">LastName is Empty</div>
+                <div *ngIf='lastname.errors.minlength'>Lastname must be of three digit</div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-3">Phone Number</label>
+            <input class="form-control col-sm-6" [(ngModel)]='user.userdata.phonenumber'
+            name="phonenumber" required #phonenumber='ngModel' type="tel" placeholder="Enter Phone Number" minlength="10" maxlength="10">
+            <div *ngIf='phonenumber.touched && phonenumber.errors' class="ml-4">
+                <div *ngIf='phonenumber.errors.required' style="color: red;">Phone Number is Empty</div>
+                <div *ngIf='phonenumber.errors.minlength && phonenumber.errors.maxlength' style="color: red;">Phone Number must be of ten digit</div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-3">City</label>
+            <input class="form-control col-sm-6" [(ngModel)]='user.userdata.city'
+            name="city" required #city='ngModel' placeholder="Enter City">
+            <div *ngIf='city.touched && city.errors' class="ml-4">
+                <div *ngIf='city.errors.required' style="color: red;">City is Empty</div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-3">Pincode</label>
+            <input class="form-control col-sm-6" [(ngModel)]='user.userdata.pincode'
+            name="pincode" required #pincode='ngModel' placeholder="Enter Pincode" minlength="6">
+            <div *ngIf='pincode.touched && pincode.errors' class="ml-4">
+                <div *ngIf='pincode.errors.required' style="color: red;">Pincode is Empty</div>
+                <div *ngIf='pincode.errors.minlength' style="color: red;">Pincode must be of Six digit</div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="sel1" class="col-sm-3">Select State</label>
+            <select class="form-control col-sm-6" [(ngModel)]='user.userdata.state' name="state" required #state='ngModel'>
+                <option value="" disabled selected hidden>Please Select State...</option>
+                <option *ngFor="let s of selectstate">{{s}}</option>
+            </select>
+            <div *ngIf='state.touched && state.errors' class="ml-4">
+                <div *ngIf='state.errors.required' style="color: red;">State is Empty</div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="sel1" class="col-sm-3">Select UserType</label>
+            <select class="form-control col-sm-6" [(ngModel)]='user.usertype' name="usertype" required #usertype='ngModel'>
+                <option value="" disabled selected hidden>Please Select UserType...</option>
+                <option *ngFor="let a of accounttype">{{a}}</option>
+            </select>
+            <div *ngIf='usertype.touched && usertype.errors' class="ml-4">
+                <div *ngIf='usertype.errors.required' style="color: red;">User Type is Empty</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <input type="submit" style="float: right; width: 150px; border-radius: 50px;" value="Submit" class="btn btn-primary">
+        </div>
+    </form>
+</div>
+
+

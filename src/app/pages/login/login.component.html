@@ -1,0 +1,43 @@
+<div class="split left">
+    <div class="centered">
+    <img src="../../../assets/img.jpeg"/>
+</div>
+   </div>
+<div class="split right" style="margin-top: 10%; padding-right: 2%;">
+    <div>
+    <form  class="bg-dark text-light p-5 mt-5" style="border-radius: 20px;" (ngSubmit)="submit()">
+        <div class="form-group row">
+            <label class="col-sm-3">Enter Email Id</label><br>
+            <input class="form-control col-sm-6" [(ngModel)]='logindata.emailId'
+             name="emailId" required #emailId='ngModel' placeholder="Enter EmailID" type="email">
+             <div *ngIf='emailId.touched && emailId.errors'  class="ml-4">
+                <div *ngIf='emailId.errors.required' style="color: red;">EmailId is Empty</div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-3">Enter Password</label>
+            <input class="form-control col-sm-6" [(ngModel)]='logindata.password'
+            name="password" required #password='ngModel' placeholder="Enter Password" type="password">
+            <div *ngIf='password.touched && password.errors' class="ml-4">
+                <div *ngIf='password.errors.required' style="color: red;">Password is Empty</div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="sel1" class="col-sm-3">Select UserType</label>
+            <select class="form-control col-sm-6" [(ngModel)]='logindata.usertype' name="usertype" required #usertype='ngModel'>
+                <option value="" disabled selected hidden>Please Select UserType...</option>
+                <option *ngFor="let a of accounttype">{{a}}</option>
+            </select>
+            <div *ngIf='usertype.touched && usertype.errors' class="ml-4">
+                <div *ngIf='usertype.errors.required' style="color: red;">User Type is Empty</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div *ngIf='loig' style="color: red; float: left;"><b>{{msg}}</b></div>
+            <input type="submit" style="float: right; width: 150px;" value="Login" class="btn btn-primary">
+        </div>
+    </form>
+    </div>
+</div>
+
+

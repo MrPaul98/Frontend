@@ -1,0 +1,16 @@
+<nav class="navbar navbar-expand-sm navbar-dark text-dark bg-dark fixed-top" style="height: 60px;position: top-fixed;">
+    <ul class="collapse navbar-collapse">
+      <li class="nav-item" style="color: white; margin-top: 10px;"><b>Token Review System</b></li>
+     </ul>
+      <ul class="nav navbar-nav navbar-right ">
+      <li class="nav-item" style="margin-top: 10px;">
+        <a *ngIf = "!login.login()" class="nav-link glyphicon glyphicon-user" routerLink='signup'>Signup</a>
+      </li>
+      <li class="nav-item" style="margin-top: 10px; ">
+        <a *ngIf = "!login.login()" class="nav-link glyphicon glyphicon-log-in" routerLink='login'>Login</a>
+      </li>
+      <li  class="nav-item" style="margin-top: 10px; ">
+        <a *ngIf = "login.login()" class="nav-link" routerLink='login' (click) = "logout()">LogOut</a>
+      </li>
+    </ul>
+  </nav>

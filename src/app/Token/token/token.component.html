@@ -1,0 +1,152 @@
+<div style="margin-top: 6.9%; margin-right: 0%;" >
+    <h2><b>Docotor Token</b></h2>
+    <hr>
+</div>
+<div class="container" style="padding-right: 2%;">
+    <div>
+    <form  class="bg-dark text-light p-5 mt-5" style="border-radius: 20px;" (ngSubmit)="Doctorsubmit()">
+        <div class="form-group row">
+            <label class="col-sm-3">Enter Email Id</label><br>
+            <input class="form-control col-sm-6" [(ngModel)]='dcotoken.emailID'
+             name="EmailID" required #EmailID='ngModel' placeholder="Enter EmailID" type="email">
+             <div *ngIf='EmailID.touched && EmailID.errors'  class="ml-4">
+                <div *ngIf='EmailID.errors.required' style="color: red;">EmailId is Empty</div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-3">Select Gender</label>
+            <select class="form-control col-sm-6" [(ngModel)]='dcotoken.gender' name="gender" required 
+            #gender='ngModel'>
+                <option value="" disabled selected hidden>Please Select Gender...</option>
+                <option *ngFor="let g of gen">{{g}}</option>
+            </select>
+            <div *ngIf='gender.touched && gender.errors' class="ml-4">
+                <div *ngIf='gender.errors.required' style="color: red;">Gender is Empty</div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="sel1" class="col-sm-3">Select DoctorType</label>
+            <select class="form-control col-sm-6" [(ngModel)]='dcotoken.doctorTypeToken' name="usertype" required #usertype='ngModel'>
+                <option value="" disabled selected hidden>Please Select DoctorType...</option>
+                <option *ngFor="let a of doctortype">{{a}}</option>
+            </select>
+            <div *ngIf='usertype.touched && usertype.errors' class="ml-4">
+                <div *ngIf='usertype.errors.required' style="color: red;">Doctor Type is Empty</div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-3">Enter Message</label><br>
+            <textarea class="form-control col-sm-6" [(ngModel)]='dcotoken.messageToDoctor'
+             name="messageToDoctor" required #messageToDoctor='ngModel' placeholder="Enter Message to Doctor" type="text"></textarea>
+             <div *ngIf='messageToDoctor.touched && messageToDoctor.errors'  class="ml-4">
+                <div *ngIf='messageToDoctor.errors.required' style="color: red;">Message is Empty</div>
+            </div>
+        </div>        
+        <div class="form-group">
+            <div *ngIf='state' style="color: rgb(12, 250, 32); float: left;"><b>{{msg}}</b></div>
+            <input type="submit" style="float: right; width: 150px;" value="SUBMIT" class="btn btn-primary">
+        </div>
+    </form>
+    </div>
+</div>
+<div style="margin-top: 3%; margin-right: 0%;" >
+    <h2><b>Electrician Token</b></h2>
+    <hr>  
+</div>
+<div class="container" style="padding-right: 2%;">
+    <div>
+    <form  class="bg-dark text-light p-5 mt-5" style="border-radius: 20px;" (ngSubmit)="Elesubmit()">
+        <div class="form-group row">
+            <label class="col-sm-3">Enter Email Id</label><br>
+            <input class="form-control col-sm-6" [(ngModel)]='etoken.emailID'
+             name="EmailID" required #EmailID='ngModel' placeholder="Enter EmailID" type="email">
+             <div *ngIf='EmailID.touched && EmailID.errors'  class="ml-4">
+                <div *ngIf='EmailID.errors.required' style="color: red;">EmailId is Empty</div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-3">Enter Time And Date</label><br>
+            <input class="form-control col-sm-6" [(ngModel)]='etoken.estimated_time_of_arrival'
+             name="estimated_time_of_arrival" required #estimated_time_of_arrival='ngModel'
+              placeholder="Enter Time And Electrician" type="text">
+             <div *ngIf='estimated_time_of_arrival.touched && estimated_time_of_arrival.errors'  class="ml-4">
+                <div *ngIf='estimated_time_of_arrival.errors.required' style="color: red;">Time is Empty</div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-3">Enter Message To Electrician</label><br>
+            <textarea class="form-control col-sm-6" [(ngModel)]='etoken.message_to_electrician'
+             name="message_to_electrician" required #message_to_electrician='ngModel'
+              placeholder="Enter Message To Electrician" type="text"></textarea>
+             <div *ngIf='message_to_electrician.touched && message_to_electrician.errors'  class="ml-4">
+                <div *ngIf='message_to_electrician.errors.required' style="color: red;">Message is Empty</div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-3">Select Electrician</label>
+            <select class="form-control col-sm-6" [(ngModel)]='etoken.type_of_electrician' name="type_of_electrician" required 
+            #type_of_electrician='ngModel'>
+                <option value="" disabled selected hidden>Please Select Electrician...</option>
+                <option *ngFor="let e of typeele">{{e}}</option>
+            </select>
+            <div *ngIf='type_of_electrician.touched && type_of_electrician.errors' class="ml-4">
+                <div *ngIf='type_of_electrician.errors.required' style="color: red;">Electrician is Empty</div>
+            </div>
+        </div>   
+        <div class="form-group">
+             <div *ngIf='state' style="color: rgb(12, 250, 32); float: left;"><b>{{msg}}</b></div> 
+            <input type="submit" style="float: right; width: 150px;" value="SUBMIT" class="btn btn-primary">
+        </div>
+    </form>
+    </div>
+</div>
+<div style="margin-top: 3%; margin-right: 0%;" >
+    <h2><b>Lawyer Token</b></h2>
+    <hr>
+</div>
+<div class="container" style="padding-right: 2%; margin-bottom: 5%;">
+    <div>
+    <form  class="bg-dark text-light p-5 mt-5" style="border-radius: 20px;" (ngSubmit)="Lawsubmit()">
+        <div class="form-group row">
+            <label class="col-sm-3">Enter Email Id</label><br>
+            <input class="form-control col-sm-6" [(ngModel)]='ltoken.emailID'
+             name="EmailID" required #EmailID='ngModel' placeholder="Enter EmailID" type="email">
+             <div *ngIf='EmailID.touched && EmailID.errors'  class="ml-4">
+                <div *ngIf='EmailID.errors.required' style="color: red;">EmailId is Empty</div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-3">Enter Appoinment Date</label><br>
+            <input class="form-control col-sm-6" [(ngModel)]='ltoken.appoinment_date'
+             name="appoinment_date" required #appoinment_date='ngModel' placeholder="Enter Appoinment" type="date">
+             <div *ngIf='appoinment_date.touched && appoinment_date.errors'  class="ml-4">
+                <div *ngIf='appoinment_date.errors.required' style="color: red;">Appoinment is Empty</div>
+            </div>
+        </div>  
+        <div class="form-group row">
+            <label class="col-sm-3">Enter Message To Lawyer</label><br>
+            <textarea class="form-control col-sm-6" [(ngModel)]='ltoken.message_to_lawyer'
+             name="message_to_lawyer" required #message_to_lawyer='ngModel'
+              placeholder="Enter Message To Lawyer" type="text"></textarea>
+             <div *ngIf='message_to_lawyer.touched && message_to_lawyer.errors'  class="ml-4">
+                <div *ngIf='message_to_lawyer.errors.required' style="color: red;">Message to Lawyer</div>
+            </div>
+        </div>             
+        <div class="form-group row">
+            <label class="col-sm-3">Select Lawyer</label>
+            <select class="form-control col-sm-6" [(ngModel)]='ltoken.type_of_lawyer' name="type_of_lawyer" 
+            required #type_of_lawyer='ngModel'>
+                <option value="" disabled selected hidden>Please Select Lawyer...</option>
+                <option *ngFor="let l of typeoflawyer">{{l}}</option>
+            </select>
+            <div *ngIf='type_of_lawyer.touched && type_of_lawyer.errors' class="ml-4">
+                <div *ngIf='type_of_lawyer.errors.required' style="color: red;">Lawyer is Empty</div>
+            </div>
+        </div> 
+        <div class="form-group">
+            <div *ngIf='state' style="color: rgb(12, 250, 32); float: left;"><b>{{msg}}</b></div>
+            <input type="submit" style="float: right; width: 150px;" value="SUBMIT" class="btn btn-primary">
+        </div>
+    </form>
+    </div>
+</div>

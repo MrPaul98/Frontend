@@ -1,0 +1,75 @@
+<div style="width: 60%; float: left; margin-top: 4.5%;">
+    <table class="table table-striped table-bordered bg-dark text-light"
+     style=" border-color: black;">
+        <tr>
+            <th>Email Id</th>
+            <th>Time</th>
+            <th>Estimated Time</th>
+            <th>Messages</th>
+        </tr>
+        <tr *ngFor = "let e of elec|async" style="overflow:scroll;">
+             <td>{{e.emailID}}</td>
+             <td>{{e.type_of_electrician}}</td>
+             <td>{{e.estimated_time_of_arrival}}</td>
+             <td>{{e.message_to_electrician}}</td>
+        </tr>
+    </table>
+    <div>
+        <h1><b>ADMIN GROUND LEVEL DATA</b></h1>
+    </div>
+    </div>
+    <div style="width: 40%; float: right; margin-top: 4.5%; border-radius: 10px;" class=" container bg-dark">
+        <div class="text-light"><h1>GET USER DATA</h1></div>
+        <form (ngSubmit)="submit()" class="text-light p-1">
+        <div class="form-group row">
+        <label class="col-sm-3"><b>Enter Email Id</b></label>
+        <input [(ngModel)]='emailID' name="emailID" class="form-control col-sm-6" placeholder="Enter Email" type="email"><br>
+        </div>
+        <input type="submit" class="btn btn-primary" value="GET USER DATA" style="float: right; margin-bottom: 5%;">
+        </form>
+        <table class="table table-striped table-bordered text-light"
+     style=" border-color: black; background-color: blue;">
+        <tr>
+            <th style="width: 30%;">Name</th>
+            <td>{{userdata.firstname}} {{userdata.middlename}} {{userdata.lastname}}</td>
+         </tr>   
+         <tr>
+            <th>PHONE NUMBER</th>  
+            <td>{{userdata.phonenumber}}</td>
+         </tr>
+         <tr>   
+            <th>CITY</th>
+            <td>{{userdata.city}}</td>
+        </tr>
+        <tr>   
+            <th>STATE</th>
+            <td>{{userdata.state}}</td>
+        </tr>
+        <tr>   
+            <th>PINCODE</th>
+            <td>{{userdata.pincode}}</td>
+        </tr>
+    </table>
+    </div>
+    <table class="table table-striped table-bordered bg-dark text-light"
+     style=" border-color: black;">
+        <tr>
+            <th>Email Id</th>
+            <th>NAME</th>
+            <th>PHONE NUMBER</th>
+            <th>ADDRESS</th>
+            <th>ELECTRICIAN Type</th>
+            <th>TIME OF ARRIVAL</th>
+            <th>Messages</th>
+        </tr>
+        <tr *ngFor = "let a of admin|async">
+            <td>{{a.emailid}}</td>
+            <td>{{a.first_name}} {{a.middle_name}} {{a.last_name}}</td>
+            <td>{{a.phonenumber}}</td>
+            <td>{{a.city}} , {{a.state}} , {{a.pincode}}</td>
+            <td>{{a.type_of_electrician}}</td>
+            <td>{{a.estimated_time_of_arrival}}</td>
+            <td>{{a.message_to_electrician}}</td>
+        </tr>
+    </table>
+    
